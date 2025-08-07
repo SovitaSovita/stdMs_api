@@ -1,0 +1,210 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Approval Notification</title>
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+        .container {
+            width: 80%;
+            margin: auto;
+            overflow: hidden;
+        }
+        header {
+            background: #ffffff;
+            color: #333;
+            padding-top: 30px;
+            min-height: 70px;
+            border-bottom: #e8491d 2px solid;
+        }
+        header a {
+            color: #333;
+            text-decoration: none;
+            text-transform: uppercase;
+            font-size: 16px;
+        }
+        header ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            overflow: hidden;
+        }
+        header #branding {
+            float: left;
+        }
+        header #branding h1 {
+            margin: 0;
+        }
+        header .highlight, header a:hover {
+            font-weight: bold;
+        }
+        header a#login, header a#register {
+            float: right;
+            display: inline;
+            padding: 0 15px 0 15px;
+            line-height: 60px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background: #e8491d;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        header #register {
+            border: 1px solid #e8491d;
+        }
+        header #login:hover, header #register:hover {
+            background: #333;
+        }
+        header a.logout {
+            float: right;
+            display: inline;
+            padding: 0 15px 0 15px;
+            line-height: 60px;
+            font-weight: bold;
+            text-align: center;
+            text-decoration: none;
+            background: #e8491d;
+            color: #ffffff;
+            border-radius: 5px;
+        }
+        header a.logout:hover {
+            background: #333;
+        }
+        main {
+            padding: 20px 0;
+        }
+        main h1, main h2 {
+            color: #333;
+        }
+        main p {
+            font-size: 18px;
+            line-height: 1.6em;
+            color: #666;
+        }
+        main a {
+            color: #e8491d;
+        }
+        main a:hover {
+            color: #333;
+        }
+        .approval-notification {
+            background: #ffffff;
+            padding: 20px;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
+        }
+        .each-list {
+            display: flex;
+            justify-content: space-between;
+            background-color: rgb(128, 128, 128, .2);
+            padding: 8px 12px;
+        }
+        .each_data {
+            width: 70%;
+        }
+
+
+        @media (min-width: 768px) {
+            .custom-image {
+                width: 50%;
+            }
+        }
+        @media (max-width: 768px) {
+            .each_data {
+                width: 100%;
+            }
+        }
+
+        .custom-image {
+            width: 83.33333%;
+            margin: 2.5rem auto;
+            object-fit: cover;
+            object-position: center;
+            border-radius: 0.375rem;
+        }
+        .brand_logo {
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+        }
+
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="container">
+        <div id="branding">
+            <div class="brand_logo">
+                <img src="https://firebasestorage.googleapis.com/v0/b/sak11-9ff80.appspot.com/o/image_2024-03-01_13-49-03.png?alt=media&token=f1534080-4ed5-44fe-a105-660988981bb0" alt="logo" style="object-fit: cover; margin-right: 12px" width="80px" height="80px">
+                <span class="highlight">Securities Investors Association of Cambodia (SIAC)</span>
+            </div>
+        </div>
+    </div>
+</header>
+
+<main>
+    <div class="container">
+        <div class="approval-notification">
+            <h4 th:text="${text}">New User Registration Approval</h4>
+            <p th:text="${subject}">
+                Hello Admin,
+            </p>
+            <p th:if="${isAdmin == true}">A new user has registered and requires your approval. Please review the details and take appropriate action.</p>
+<!--        <p th:if="${isAdmin == false}">Registration have been approved.</p>-->
+            <a th:if="${isAdmin == true}" th:href="${dashboard_url}">Go to Dashboard</a>
+            <!-- Include user details here -->
+            <p><strong>User Information:</strong></p>
+            <div class="each_data">
+                <div class="each-list">
+                    <div class="title-font font-medium">ID : </div>
+                    <span class="" th:text="${user?.chatId}">N/A</span>
+                </div>
+                <div class="each-list">
+                    <div class="title-font font-medium">Username : </div>
+                    <span class="" th:text="${user?.username}">N/A</span>
+                </div>
+                <div class="each-list">
+                    <div class="title-font font-medium">First name : </div>
+                    <span class="" th:text="${user?.firstname}">N/A</span>
+                </div>
+                <div class="each-list">
+                    <div class="title-font font-medium">Last name : </div>
+                    <span class="" th:text="${user?.lastname}">N/A</span>
+                </div>
+                <div class="each-list">
+                    <div class="title-font font-medium">Email : </div>
+                    <span class="" th:text="${user?.email}">N/A</span>
+                </div>
+                <div class="each-list">
+                    <div class="title-font font-medium">Phone number : </div>
+                    <span class="" th:text="${user?.phoneNumber}">N/A</span>
+                </div>
+                <div class="each-list">
+                    <div class="title-font font-medium">Date : </div>
+                    <span class="" th:text="${user?.createdDate}"></span>
+                </div>
+                <div class="each-list">
+                    <div class="title-font font-medium">Point : </div>
+                    <span class="" th:text="${user?.point}">N/A</span>
+                </div>
+            </div>
+            <p th:text="${image_url}"></p>
+            <img th:src="${image_url}" class="custom-image" alt="hero">
+            <p>Thank you!</p>
+        </div>
+    </div>
+</main>
+
+</body>
+</html>
+

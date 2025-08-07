@@ -1,0 +1,52 @@
+spring:
+  profiles:
+    active: local #Change THIS to "prod" Before deploy to Prod
+  jackson:
+    time-zone: Asia/Phnom_Penh
+  mail:
+    host: smtp.gmail.com
+    port: 587
+    username: securitiesinvestorsassociation@gmail.com
+    password: kceoqzkfyfhtwujb
+    properties:
+      mail:
+        transport:
+          protocol: smtp
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+            required: true
+          from: contact@email.com
+      from:
+        name: Sak
+  jpa:
+    hibernate:
+      ddl-auto: update
+    show-sql: false
+    properties:
+      hibernate:
+        format_sql: false
+  servlet:
+    multipart:
+      max-file-size: 50MB
+      max-request-size: 100MB
+  application:
+    name: digital-asset
+
+custom:
+  email:
+    to: sovitasovita28@gmail.com
+
+jwt:
+  secret: digitalAsset
+myAdmin:
+  username: Admin
+  password: StdMs123@
+
+#springdoc:
+#  api-docs:
+#    path: /v3/api-docs
+#  swagger-ui:
+#    path: /swagger-ui.html
+#    enabled: true

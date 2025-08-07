@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://209.146.62.96:5432/std_ms_db
+    username: adminklassy
+    password: dbklassy123@@2024
+
+server:
+  port: 4545
+
+
+#On server
+baseUrl_img: http://209.146.62.96/api/v1/images?fileName=
+dashboard_url: http://209.146.62.96
+file_path: /srv/stms/images
