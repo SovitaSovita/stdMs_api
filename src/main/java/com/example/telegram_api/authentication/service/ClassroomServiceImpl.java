@@ -182,6 +182,12 @@ public class ClassroomServiceImpl {
         student.setGender(stuRequest.getGender());
         student.setFullName(stuRequest.getFullName());
         student.setDateOfBirth(stuRequest.getDateOfBirth());
+        student.setFatherName(stuRequest.getFatherName());
+        student.setMontherName(stuRequest.getMontherName());
+        student.setFatherOccupation(stuRequest.getFatherOccupation());
+        student.setMontherOccupation(stuRequest.getMontherOccupation());
+        student.setAddress(stuRequest.getAddress());
+        student.setPlaceOfBirth(stuRequest.getPlaceOfBirth());
 
         Student newStudent = null;
         
@@ -189,7 +195,7 @@ public class ClassroomServiceImpl {
             Student existStu = studentRepository.findById(stuRequest.getId())
                     .orElseThrow(() -> new NotFoundExceptionClass("student with id: " + stuRequest.getId() + " not found"));
             student.setId(existStu.getId());
-            studentRepository.save(student);
+            newStudent = studentRepository.save(student);
         }
         else{
              newStudent = studentRepository.save(student);

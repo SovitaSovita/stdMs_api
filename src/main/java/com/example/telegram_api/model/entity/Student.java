@@ -25,6 +25,12 @@ public class Student {
     private Gender gender;
 
     private LocalDate dateOfBirth;
+    private String fatherName;
+    private String fatherOccupation;
+    private String montherName;
+    private String montherOccupation;
+    private String placeOfBirth;
+    private String address;
 
     @ManyToOne
     @JoinColumn(name = "classroom_id", nullable = false)

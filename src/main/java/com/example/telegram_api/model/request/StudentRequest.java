@@ -21,5 +21,11 @@ public class StudentRequest {
     private String fullName;
     private Gender gender;
     private LocalDate dateOfBirth;
+    private String fatherName;
+    private String fatherOccupation;
+    private String montherName;
+    private String montherOccupation;
+    private String placeOfBirth;
+    private String address;
 //    private List<Score> scores = new ArrayList<>();
 }
