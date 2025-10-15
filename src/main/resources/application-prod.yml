@@ -13,3 +13,4 @@ server:
 baseUrl_img: http://209.146.62.96/api/v1/images?fileName=
 dashboard_url: http://209.146.62.96
 file_path: /srv/stms/images
+####
